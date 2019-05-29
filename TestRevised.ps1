@@ -1,8 +1,8 @@
-﻿#Array of file type
-$fileTypes = @(".exe",".pdf",".jpg",".png",".gif",".zip",".iso",".docx")
+#Array of file type
+$fileTypes = @(".exe",".pdf",".jpg",".png",".gif",".zip",".iso",".docx",".mp4",".mkv")
 
 #Full file name
-$fileNames = @("Executables","pdf","Pictures","Pictures","Pictures","zips","iso","documents")
+$fileNames = @("Executables","pdf","Pictures","Pictures","Pictures","zips","iso","documents","videos","videos")
 
 #Makes array of elements in dir
 $filesTemp = Get-ChildItem
