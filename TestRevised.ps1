@@ -1,33 +1,34 @@
 #Array of file type
-$fileTypes = @(".exe",".pdf",".jpg",".png",".gif",".zip",".iso",".docx",".mp4",".mkv")
+$fileExtension = @(".exe",".msi",".pdf",".jpg",".png",".gif",".svg",".zip",".iso",".docx",".mp4",".mkv")
 
 #Full file name
-$fileNames = @("Executables","pdf","Pictures","Pictures","Pictures","zips","iso","documents","videos","videos")
+$fileNames = @("Executables","Executables","Pdfs","Pictures","Pictures","Pictures","Pictures","zips","iso","documents","videos","videos")
 
 #Makes array of elements in dir
-$filesTemp = Get-ChildItem
+$arrayOfDir = Get-ChildItem
 
 #Cycles through all the files in the directory
-For($i=0;$i -lt $filesTemp.length;$i++){
+For($i=0;$i -lt $arrayOfDir.length;$i++){
     
     #Cycles through each file type
-    For($j=0;$j -lt $fileTypes.length;$j++){
+    For($j=0;$j -lt $fileExtension.length;$j++){
 
-        #Checks if the file Ext is equal to the fileTypes Array
-        if(($filesTemp[$i].Extension) -eq $fileTypes[$j]){   
+        #Checks if the file Ext is equal to the fileExtension Array
+        if(($arrayOfDir[$i].Extension) -eq $fileExtension[$j]){   
             
             #Testing if extra Var makes parsing easier
             $fileNameTest = ".\" + $fileNames[$j]
-            #Needs to check for path
-            #If (!(Test-Path .\$fileNames[$j])) {
-            #New-Item -ItemType directory -Path $targetdir
-            
-            #}
+
+			    #Needs to check for path
+			    If (!(Test-Path $fileNameTest)){
+				    mkdir $fileNames
+			        Host-out "Make Dir"	
+			    }
 
 
             #Moves files to respective folders
-            Move-Item -Path $filesTemp[$i].Name -Destination $fileNameTest 
-            $filesTemp[$i].Name
+            Move-Item -Path $arrayOfDir[$i].Name -Destination $fileNameTest
+            $arrayOfDir[$i].Name
             $fileNames[$j]
             $fileNameTest
         }
