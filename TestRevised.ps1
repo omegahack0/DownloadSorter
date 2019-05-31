@@ -21,17 +21,18 @@ For($i=0;$i -lt $arrayOfDir.length;$i++){
 
 			    #Needs to check for path
 			    If (!(Test-Path $fileNameTest)){
+                    
                     Write-Host $fileNameTest
 				    mkdir $fileNames[$j]
-			        Write-Host "Making Dir" $fileNames	
+			        Write-Host "Making Dir" $fileNames[$j]	
 			    }
-
 
             #Moves files to respective folders
             Move-Item -Path $arrayOfDir[$i].Name -Destination $fileNameTest
-            $arrayOfDir[$i].Name
-            $fileNames[$j]
-            $fileNameTest
+            Write-Host `n
+            Write-Host "The file to be moved is " $arrayOfDir[$i].Name
+            #Write-Host "This is a " $fileNames[$j]
+            Write-Host "The file will be moved to "$fileNameTest
         }
     }
 }
