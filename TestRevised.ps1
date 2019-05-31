@@ -1,8 +1,8 @@
-#Array of file type
-$fileExtension = @(".exe",".msi",".pdf",".jpg",".png",".gif",".svg",".zip",".iso",".docx",".mp4",".mkv")
+#List of file Types to sort
+$fileExtension = @(".exe",".msi",".pdf",".jpg",".png",".gif",".svg",".zip",".rar",".7z",".iso",".docx",".mp4",".mkv",".ttf")
 
-#Full file name
-$fileNames = @("Executables","Executables","Pdfs","Pictures","Pictures","Pictures","Pictures","zips","iso","documents","videos","videos")
+#Names for file extensions
+$fileNames = @("Executables","Executables","Pdfs","Pictures","Pictures","Pictures","Pictures","zips","zips","zips","iso","documents","videos","videos","Fonts")
 
 #Makes array of elements in dir
 $arrayOfDir = Get-ChildItem
@@ -21,8 +21,9 @@ For($i=0;$i -lt $arrayOfDir.length;$i++){
 
 			    #Needs to check for path
 			    If (!(Test-Path $fileNameTest)){
-				    mkdir $fileNames
-			        Host-out "Make Dir"	
+                    Write-Host $fileNameTest
+				    mkdir $fileNames[$j]
+			        Write-Host "Making Dir" $fileNames	
 			    }
 
 
