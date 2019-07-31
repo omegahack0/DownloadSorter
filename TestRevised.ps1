@@ -1,8 +1,8 @@
 #List of file Types to sort
-$fileExtension = @(".exe",".msi",".pdf",".jpg",".png",".gif",".svg",".zip",".rar",".7z",".iso",".docx",".mp4",".mkv",".ttf")
+$fileExtension = @(".exe",".msi",".pdf",".jpg",".png",".gif",".svg",".zip",".rar",".7z",".iso",".docx",".mp4",".mkv",".ttf",".mp3",".wav",".webm",".aiff",".m4a",".aa",".aax")
 
 #Names for file extensions
-$fileNames = @("Executables","Executables","Pdfs","Pictures","Pictures","Pictures","Pictures","zips","zips","zips","iso","documents","videos","videos","Fonts")
+$fileNames = @("Executables","Executables","Pdfs","Pictures","Pictures","Pictures","Pictures","zips","zips","zips","iso","documents","videos","videos","Fonts","Music","Music","Music","Music","Music","AudioBooks","AudioBooks")
 
 #Makes array of elements in dir
 $arrayOfDir = Get-ChildItem
